@@ -1,0 +1,22 @@
+{% extends 'Library/layout.html' %}
+{% load crispy_forms_tags %} 
+{% block head %}
+<title>
+    Issue Book
+</title>
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'issue_book' %}" method="post">
+    <h2>Issue Book</h2>
+    {% csrf_token %}
+    {% if form %}
+    <div class="row bg-white">
+        {% for field in form %}
+        <div class="col-md-6 p-2">{{ field|as_crispy_field }}</div>
+        {% endfor %}
+        <div class="col-md-12"><button type="submit" class="btn btn-primary" >Issue Book</button></div>
+    </div>
+    {% endif %}
+</form>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'Library/layout.html' %}
+
+{% block head %}
+    <title>List of Books Issued</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    {% if li3 %}
+        <div style="text-align: center;">
+            {% for t in li3 %}
+                <h2>{{t.0}} : {{t.1}}</h2>
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+    <div class="col-lg-6" style="padding-right:0px;">
+    {% if li1%}
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <div class="links"></div>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for t in li1 %}
+                    <tr>
+                        <td>  {{t.0}}</td>
+                        <td>  {{t.1}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+    </div>
+    
+    <div class="col-lg-6" style="padding-left:0px;">
+    
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                    <th>Fine</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <div class="links"></div>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for t in li2 %}
+                    <tr>
+                        <td>  {{t.0}}</td>
+                        <td>  {{t.1}}</td>
+                        <td>  {{t.2}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {%else%}
+        <h1> No book Issued to you</h1>
+    {%endif%}
+  
+  </div></div>
+
+{% endblock %}

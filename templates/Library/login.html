@@ -1,0 +1,14 @@
+{% extends 'Library/layout.html' %}
+{% load socialaccount %}
+{% block head %}
+    <title>Login</title>
+{% endblock %}
+
+{% block body %} 
+    <h1>LOGIN</h1>
+    {% if user.is_authenticated %}
+        <h3>Welcome, you are logged in as {{ user.email }} </h3>
+    {% else %}
+        <h3><a href="{% provider_login_url 'google' %}" method="oauth2">Login with Google</a></h3>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'Library/layout.html' %}
+{% load socialaccount %}
+{% load static %}
+{% block head %}
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+<!-- <div class="bs-example">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a href="/" class="navbar-brand">IIITL Library</a>
+        <img src="https://iiitl.ac.in/wp-content/uploads/2019/10/Final_Logo_IIITL.png" alt="Logo" style="height: 40px;">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+            </div>
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                        for book dropdown button-->
+                        <!-- <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Book</a>
+                            <div class="dropdown-menu">
+                            <a href="addbook" class="dropdown-item">Add Book</a>
+                            <a href="viewbook" class="dropdown-item">View Book</a>
+                            </div>
+                        </div>
+         -->
+                        <!--for issuebook dropdown button-->
+                        <!-- <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Issue Book</a>
+                            <div class="dropdown-menu">
+                            <a href="issuebook" class="dropdown-item">Issue New Book</a>
+                            <a href="viewissuedbook" class="dropdown-item">View Issued Book</a>
+                            </div>
+                        </div> -->
+        
+                        <!--for student dropdown button-->
+                        <!-- <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Student</a>
+                            <div class="dropdown-menu">
+                            <a href="viewstudent" class="dropdown-item">View Student</a>
+                            </div>
+                        </div>
+                    {% else %} -->
+                        <!--for issuebook dropdown button-->
+                        <!-- <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Issue Book</a>
+                            <div class="dropdown-menu">
+                            <a href="viewissuedbookbystudent" class="dropdown-item">View Issued Book</a>
+                            </div>
+                        </div>
+                    {% endif %} 
+                    <a href="logout" class="nav-item nav-link">Logout</a> &nbsp;
+                {% else %}
+                <a href="{% provider_login_url 'google' %}" method="oauth2" class="nav-item nav-link">Login</a> &nbsp; 
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</div> --> 
+
+{% block body %}
+    <!-- <h1>LIBRARY MANAGEMENT</h1> -->
+    <!-- {% if user.is_authenticated %}
+        <p>Welcome, you are logged in as {{ user.username }} </p>
+    {% else %}
+        <a href="{% provider_login_url 'google' %}">Login with Google</a>
+    {% endif %} -->
+    <img class="mySlides" src="https://img.freepik.com/free-vector/library-with-books-shelves-laptop-table_107791-1758.jpg?w=1380&t=st=1669544914~exp=1669545514~hmac=3deaaec5cb1839807a3211201519dca361327c0fd26b06bc4bc8e9114f163419" style="width:100%; height: 525px;">
+    <div class="jumbotron">
+        <h1 style="text-align:center; " class="display-4 try">Library Management System</h1>
+        <p class="lead" style="text-align:center" >A service dedicated to Admin and Student. We provide online resources, professional support
+          and guidance to all our students whenever, and from wherever they have chosen to study.</p>      
+        
+{% endblock %}
