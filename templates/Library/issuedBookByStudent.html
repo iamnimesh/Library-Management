@@ -2,18 +2,64 @@
 
 {% block head %}
     <title>List of Books Issued</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+
+
+<style type="text/css">
+    
+    .bs-example{
+        margin: 0px;
+    }
+.navbar-brand{
+  font-size: 20px;
+  font-family: sans-serif;
+
+}
+body{
+    background-image: url("https://media.istockphoto.com/photos/textbooks-stacked-on-school-desk-with-chalkboard-background-picture-id638383032?b=1&k=20&m=638383032&s=170667a&w=0&h=T8UqCXjblfdTPKu4LlLHqJWizWbd3LEhEkJHAMcB83I=");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 0.5; */
+}
+.row{
+    margin: 100px 300px 50px 20px;
+}
+
+table.table-bordered{
+    border:1px solid black;
+    margin-top:20px;
+  }
+table.table-bordered > thead > tr > th{
+    border:1px solid black;
+}
+table.table-bordered > tbody > tr > td{
+    border:1px solid black;
+}
+
+</style>
 {% endblock %}
 
 {% block body %}
 
-<div class="row">
+<div class="row" style="margin-top: 200px; display:block;">
+    
     {% if li3 %}
-        <div style="text-align: center;">
+        <div style="text-align: center; margin-top: 400px; margin: auto;">
             {% for t in li3 %}
-                <h2>{{t.0}} : {{t.1}}</h2>
+                <h1 style="display:block ;">{{t.0}} : {{t.1}} </h1>
             {% endfor %}
         </div>
+        
     {% endif %}
+
+    
+</div>
+<div class="row">
     
     <div class="col-lg-6" style="padding-right:0px;">
     {% if li1%}
@@ -24,13 +70,9 @@
                     <th>Author</th>
                 </tr>
             </thead>
-            <tfoot>
-                <tr>
-                    <td colspan="5">
-                        <div class="links"></div>
-                    </td>
-                </tr>
-            </tfoot>
+            
+                
+            
             <tbody>
                 {% for t in li1 %}
                     <tr>
@@ -53,13 +95,9 @@
                     <th>Fine</th>
                 </tr>
             </thead>
-            <tfoot>
-                <tr>
-                    <td colspan="5">
-                        <div class="links"></div>
-                    </td>
-                </tr>
-            </tfoot>
+            
+            
+            
             <tbody>
                 {% for t in li2 %}
                     <tr>
@@ -71,9 +109,10 @@
             </tbody>
         </table>
     {%else%}
-        <h1> No book Issued to you</h1>
+        <h1 style="font-size:60px;"> No book Issued to you</h1>
     {%endif%}
   
   </div></div>
+  </div>
 
 {% endblock %}

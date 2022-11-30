@@ -2,22 +2,101 @@
 {% load crispy_forms_tags %} 
 {% block head %}
     <title>Add Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
         body {
             background-image: url("https://media.istockphoto.com/photos/textbooks-stacked-on-school-desk-with-chalkboard-background-picture-id638383032?b=1&k=20&m=638383032&s=170667a&w=0&h=T8UqCXjblfdTPKu4LlLHqJWizWbd3LEhEkJHAMcB83I=");
-			background-repeat: no-repeat;
+			background-repeat: repeat;
 			background-size: 100vw 100vh;
         }
+
+        .center{
+
+            margin-top: 100px;
+            margin-bottom:50px;
+        }
+        .center h3{
+            /* background-color: blue; */
+            text-align: center;
+        }
+
+        .signup-form{
+            /* background-color: black; */
+            margin: 0px 0px 0px 0px;
+            justify-content: center;
+            align-items: center;
+            /* border-bottom: 2px groove black; */
+            padding-bottom: 70px;
+        }
+
+        .form-horizontal{
+            /* background-color: blue; */
+            width: 100px;
+            margin: 0px 0px 0px 0px;
+            display: inline;
+            /* border: 2px solid black; */
+        }
+        .control-group{
+            align-items: center;
+        }
+
+        .row{
+            margin: 0px;
+            display: block;
+            text-align: center;
+
+             /* border: 2px solid; */
+             display: block;
+             text-align: center;
+             justify-content: center;
+             max-width: 20%;
+             margin: auto;
+             padding: 48px;
+             background-color: rgb(255, 255, 255);
+             border-radius: 9px;
+
+        }
+
+        .col-md-6{
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .textinput{
+            border-radius: 4px;
+            border-color: #abaaaa;
+        }
+
+        .numberinput{
+            border-radius: 4px;
+            border-color: #abaaaa;
+        }
+
+        .tables{
+            margin-top: 50px;
+            /* justify-content: center; */
+            /* text-align: center; */
+            /* background-color: blue; */
+        }
+
     </style>
 {% endblock %}
 
 {% block body %}   
+
+<div class="center">
+    {% include 'Library/messages.html' %}
+    <h3>
+        <b>Add Book In The Library</b>
+    </h3>
+</div>
 <div class="signup-form" >
-    <div class="center">
-        <h3>
-            <b>Add Book In The Library</b>
-        </h3>
-        {% include 'Library/messages.html' %}
+   
+       
         <form action="{% url 'add_book' %}" method="post" class="form-horizontal">
             {% csrf_token %}
             <!-- <label for="title">Title</label>
@@ -30,22 +109,24 @@
             <!-- {{ form.as_p }} -->
             <!-- <button type="submit" class="btn btn-primary" >Add Book</button> -->
             {% if form %}
-            <div class="row bg-white">
+            <div class="row">
                 {% for field in form %}
                 <div class="col-md-6 p-2">{{ field|as_crispy_field }}</div>
                 {% endfor %}
-                <div class="col-md-12"><button type="submit" class="btn btn-primary" >Add Book</button></div>
+                <div class="col-md-12"><button type="submit" class="btn btn-primary"  style="margin-top: 15px;">Add Book</button></div>
             </div>
             {% endif %}
 
         </form>
-    </div>
+    
     <!-- <div class="signup_link">
         View <a href="#">Available Books in Library</a>
     </div> -->
-
+    
+<!-- </div>
+<h3 style="text-align: center; margin-top: 4px; border-top: 2px solid  black; padding-top: 20px;">Book Details</h3>
+<div class="tables">
     <div class="col-md-6">
-        <h4>Book Details</h4>
         <table class="table table-striped bg-white">
             <thead>
                 <tr>
@@ -60,7 +141,7 @@
                 <tr>
                     <th scope="row">{{forloop.counter}}</th>
                     <td>{{detail.title}}</td>
-                    <td>{{details.isbn}}</td>
+                    <td>{{detail.isbn}}</td>
                     <td>{{detail.author}}</td>
                 </tr>
                 {% endfor %}
@@ -70,5 +151,5 @@
         <p class="text-center p-2 mb-0 text-danger bg-white">NO data to display</p>
         {% endif %}
     </div>
-</div>
+</div> -->
 {% endblock %}

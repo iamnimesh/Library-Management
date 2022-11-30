@@ -4,19 +4,55 @@
 <title>
     Issue Book
 </title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .temp{
+        
+        text-align: center;
+        margin : 100px 300px 0px 300px;
+        padding : 50px 0px 50px 0px;
+        border-radius: 12px;
+        height: 370px;
+        border-radius: 12px;
+        /* border: 1px solid black; */
+        width: 500px;
+        background-color: white;
+        }
+        body{
+    background-image: url("https://media.istockphoto.com/photos/textbooks-stacked-on-school-desk-with-chalkboard-background-picture-id638383032?b=1&k=20&m=638383032&s=170667a&w=0&h=T8UqCXjblfdTPKu4LlLHqJWizWbd3LEhEkJHAMcB83I=");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+     .form-control{
+        border-color: black;
+        border-radius: 5px;
+     }
+
+        .col-md-6{
+            margin : 18px auto;
+            
+            
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-<form action="{% url 'issue_book' %}" method="post">
+<form action="{% url 'issue_book' %}" method="post" style = " margin-top : 200px; " >
+    <div class="temp" >
     <h2>Issue Book</h2>
     {% csrf_token %}
     {% if form %}
-    <div class="row bg-white">
+    <div class="row" style=" display : block;" >
         {% for field in form %}
-        <div class="col-md-6 p-2">{{ field|as_crispy_field }}</div>
+        <div class="col-md-6 p-2" style = " ">{{ field }}</div>
         {% endfor %}
-        <div class="col-md-12"><button type="submit" class="btn btn-primary" >Issue Book</button></div>
+        <div class="col-md-12" ><button type="submit" class="btn btn-primary" style="margin-top : 23px;">Issue Book</button></div>
     </div>
     {% endif %}
+    </div>
 </form>
 {% endblock %}

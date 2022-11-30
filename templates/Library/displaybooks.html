@@ -2,12 +2,32 @@
 
 {% block head %}
     <title>List of Books</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <style>
+
+body {
+            background-image: url("https://media.istockphoto.com/photos/textbooks-stacked-on-school-desk-with-chalkboard-background-picture-id638383032?b=1&k=20&m=638383032&s=170667a&w=0&h=T8UqCXjblfdTPKu4LlLHqJWizWbd3LEhEkJHAMcB83I=");
+			background-repeat: repeat;
+			background-size: 100vw 100vh;
+        }
+      .container{
+        margin-top: 100px;
+      }
+
+    </style>
+    
 {% endblock %}
 
 {% block body %} 
 {% if books%}
 <div class="container">
-  <table class="table table-hover table-condensed table-striped table-bordered">
+  <table class="table table-hover table-condensed table-striped table-bordered bg-white">
     <thead>
     <tr>
     <th>Book Name</th>
